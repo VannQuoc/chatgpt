@@ -63,8 +63,12 @@ def get_cookies():
                     expires_at = entitlement['expires_at']
                     has_active_subscription = entitlement['has_active_subscription']
                     purchase_origin_platform = last_active_subscription['purchase_origin_platform']
-                ketqua= f"HIT Email: {mail} Plan: {subscription_plan} Expried: {expires_at} Payment Method:{purchase_origin_platform} Config By MonLeoHayKhok"
-                return ketqua
+                if subscription_plan != chatgptfreeplan and has_active_subscription != False and has_active_subscription != false:
+                    ketqua= f"HIT Email: {mail} Plan: {subscription_plan} Expried: {expires_at} Payment Method:{purchase_origin_platform} Config By MonLeoHayKhok"
+                    return ketqua
+                else:
+                    return "BAD"
+
             except ValueError as e:
                 print(f"Error parsing JSON: {e}")
         except ValueError as e:
