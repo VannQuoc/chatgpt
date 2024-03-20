@@ -35,6 +35,7 @@ def get_cookies():
         response = requests.get('https://chat.openai.com/api/auth/session', headers=headers)
         try:
             data = response.json()
+            print(data)
             token = data.get('accessToken')
             mail = data.get('user' , {}).get('email', '')
             headers = {
@@ -54,6 +55,7 @@ def get_cookies():
         }
             response = requests.get('https://chat.openai.com/backend-api/accounts/check/v4-2023-04-27', headers=headers)
             data = response.json()
+            print(data)
             try:
                 accounts = data['accounts']
                 for account_id, account_info in accounts.items():
